@@ -1,0 +1,33 @@
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.10;
+
+contract Assessment {
+    uint public currBalance;
+    address public author;
+
+    constructor() {
+        author = msg.sender;
+    }
+
+    modifier isOwner() {
+        require(msg.sender == author, "You are not the author");
+        _;
+    }
+
+    modifier hasBalance(uint someValue) {
+        require(currBalance >= someValue, "Insufficient balance");
+        _;
+    }
+
+    function deposit(uint someValue) public isOwner {
+        currBalance += someValue;
+    }
+
+    function withdraw(uint someValue) public isOwner hasBalance(someValue) {
+        currBalance -= someValue;
+    }
+
+    function withdrawWithModifier(uint someValue) public isOwner hasBalance(someValue) {
+        currBalance -= someValue;
+    }
+}

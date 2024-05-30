@@ -13,3 +13,21 @@ The `require()` statement is used to validate conditions before executing a func
 Example:
 ```solidity
 require(msg.sender == author, "You are not the author");
+
+
+✅ require()
+
+The `require()` statement is used to validate conditions before executing a function. If the condition fails, the execution stops and the transaction is reverted. It is typically used to check inputs, permissions, and other critical conditions.
+
+Example:
+```solidity
+require(msg.sender == author, "You are not the author");
+
+
+✅ require()
+
+The `require()` statement is used to validate conditions before executing a function. If the condition fails, the execution stops and the transaction is reverted. It is typically used to check inputs, permissions, and other critical conditions.
+
+Example:
+```solidity
+require(msg.sender == author, "You are not the author");

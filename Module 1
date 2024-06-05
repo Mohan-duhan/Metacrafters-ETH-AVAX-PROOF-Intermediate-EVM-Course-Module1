@@ -2,7 +2,7 @@
 pragma solidity ^0.8.10;
 
 contract Assessment {
-    uint public currBalance;
+    uint256 public currBalance;
     address public author;
 
     constructor() {
@@ -14,20 +14,20 @@ contract Assessment {
         _;
     }
 
-    modifier hasBalance(uint someValue) {
+    modifier hasBalance(uint256 someValue) {
         require(currBalance >= someValue, "Insufficient balance");
         _;
     }
 
-    function deposit(uint someValue) public isOwner {
+    function deposit(uint256 someValue) public isOwner {
         currBalance += someValue;
     }
 
-    function withdraw(uint someValue) public isOwner hasBalance(someValue) {
+    function withdraw(uint256 someValue) public isOwner hasBalance(someValue) {
         currBalance -= someValue;
     }
 
-    function withdrawWithModifier(uint someValue) public isOwner hasBalance(someValue) {
-        currBalance -= someValue;
+    function assertBalance(uint256 value) public view {
+        assert(currBalance == value);
     }
 }
